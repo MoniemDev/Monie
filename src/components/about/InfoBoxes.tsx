@@ -14,8 +14,8 @@ const InfoBoxes = () => {
           <div>
             <h4 className="text-lg font-bold mb-2 text-[#3E40EF]">Education</h4>
             <p className="text-gray-700 text-sm">
-              B.Tech in ECE<br />
-              Vellore Institute of Technology, 2022-2026
+              B.Tech in ECE (Biomedical) <br/>
+              Vellore Institute of Technology, Vellore 2022-2026
             </p>
           </div>
         </div>
@@ -31,7 +31,7 @@ const InfoBoxes = () => {
             <h4 className="text-lg font-bold mb-2 text-[#3E40EF]">Location</h4>
             <p className="text-gray-700 text-sm">
               Based in India<br />
-              Available for Summer Internships
+              Available for Internships/Full time
             </p>
           </div>
         </div>
@@ -46,8 +46,8 @@ const InfoBoxes = () => {
           <div>
             <h4 className="text-lg font-bold mb-2 text-[#3E40EF]">Experience</h4>
             <p className="text-gray-700 text-sm">
-              Managing Product Design at Imaginum<br />
-              Tech & Design Head at CSED
+              Ex-intern @Phicsit <br />
+              Managed Product Design at Imaginum
             </p>
           </div>
         </div>
