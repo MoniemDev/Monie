@@ -20,8 +20,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Manrope', 'sans-serif'],
+        sans: ['Parastoo', 'sans-serif'],
+        display: ['Parastoo', 'sans-serif'],
         mono: ['Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       colors: {

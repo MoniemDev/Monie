@@ -1,5 +1,35 @@
-/* Optimized font loading with only the weights we need */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+/* Parastoo Font - Local TTF files */
+@font-face {
+  font-family: 'Parastoo';
+  src: url('/fonts/Parastoo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Parastoo';
+  src: url('/fonts/Parastoo-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Parastoo';
+  src: url('/fonts/Parastoo-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Parastoo';
+  src: url('/fonts/Parastoo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
@@ -26,7 +56,7 @@
     --muted-foreground: 240 3.8% 46.1%;
 
     --accent: 239 84% 56%; /* Pure violet #3E40EF */
-    --accent-foreground: 0 0% 98%;
+    --accent-foreground: 0 0% 100%; /* Pure white for better contrast */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -45,12 +75,50 @@
     --color-5: 326 100% 60%;
   }
 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 239 84% 67%; /* Lighter violet for dark mode #5B5EFF */
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    /* Rainbow button colors - adjusted for dark mode */
+    --color-1: 0 93% 63%;
+    --color-2: 230 100% 70%;
+    --color-3: 142 71% 55%;
+    --color-4: 56 100% 60%;
+    --color-5: 326 100% 70%;
+  }
+
   * {
     @apply border-border;
   }
   
   body {
     @apply bg-background text-foreground font-sans;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -86,7 +154,7 @@ html {
 
   .link-underline {
     @apply relative;
-    @apply after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-[#3E40EF] after:transition-transform after:duration-300;
+    @apply after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-accent after:transition-transform after:duration-300;
     @apply hover:after:origin-bottom-left hover:after:scale-x-100;
   }
 
@@ -103,7 +171,7 @@ html {
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-[#3E40EF]/10 hover:text-[#3E40EF] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent/10 hover:text-accent focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
   }
 }
 
@@ -127,7 +195,7 @@ html {
   top: 0;
   height: 100%;
   width: 15%;
-  background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+  background: linear-gradient(to right, transparent, hsl(var(--background)));
   pointer-events: none;
 }
 
@@ -169,8 +237,8 @@ html {
   --duration: 3s;
   --background: linear-gradient(
     0deg,
-    rgba(62, 64, 239, 0.1) 0%,
-    rgba(62, 64, 239, 0.2) 100%
+    hsl(var(--accent) / 0.1) 0%,
+    hsl(var(--accent) / 0.2) 100%
   );
   height: var(--size);
   aspect-ratio: 1;
@@ -183,10 +251,10 @@ html {
 
 .ripple-loader .box {
   position: absolute;
-  background: rgba(62, 64, 239, 0.05);
+  background: hsl(var(--accent) / 0.05);
   background: var(--background);
   border-radius: 50%;
-  border-top: 1px solid rgba(62, 64, 239, 0.4);
+  border-top: 1px solid hsl(var(--accent) / 0.4);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 10px -0px;
   backdrop-filter: blur(5px);
   animation: ripple var(--duration) infinite ease-in-out;
@@ -198,25 +266,25 @@ html {
 
 .ripple-loader .box:nth-child(2) {
   inset: 30%;
-  border-color: rgba(62, 64, 239, 0.5);
+  border-color: hsl(var(--accent) / 0.5);
   animation-delay: 0.3s;
 }
 
 .ripple-loader .box:nth-child(3) {
   inset: 20%;
-  border-color: rgba(62, 64, 239, 0.4);
+  border-color: hsl(var(--accent) / 0.4);
   animation-delay: 0.6s;
 }
 
 .ripple-loader .box:nth-child(4) {
   inset: 10%;
-  border-color: rgba(62, 64, 239, 0.3);
+  border-color: hsl(var(--accent) / 0.3);
   animation-delay: 0.9s;
 }
 
 .ripple-loader .box:nth-child(5) {
   inset: 0%;
-  border-color: rgba(62, 64, 239, 0.2);
+  border-color: hsl(var(--accent) / 0.2);
   animation-delay: 1.2s;
 }
 
@@ -253,7 +321,7 @@ html {
   position: absolute;
   width: 8px;
   height: 8px;
-  background-color: #3E40EF;
+  background-color: hsl(var(--accent));
   border-radius: 50%;
   opacity: 0.5;
 }
@@ -322,7 +390,7 @@ html {
 
 /* Wave animation for hero section */
 .wave-animation {
-  background: linear-gradient(45deg, #3E40EF, #6366F1);
+  background: linear-gradient(45deg, hsl(var(--accent)), hsl(var(--accent) / 0.8));
   background-size: 400% 400%;
   animation: wave-gradient 8s ease infinite;
   position: absolute;
@@ -461,14 +529,14 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3E40EF;
+  background: hsl(var(--accent));
   border-radius: 50px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2f30b3;
+  background: hsl(var(--accent) / 0.8);
   border: 2px solid transparent;
   background-clip: padding-box;
 }
@@ -480,6 +548,6 @@ html {
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #3E40EF transparent;
+  scrollbar-color: hsl(var(--accent)) transparent;
 }
 
