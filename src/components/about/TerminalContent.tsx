@@ -25,11 +25,20 @@ const TerminalContent = () => {
         
         <div className="space-y-6 text-[#7e7e7e] font-display text-base leading-relaxed pr-2">
           <p className="text-gray-700">
-          My design approach transforms complexity into intuitive digital experiences that users genuinely connect with. Through methodical research and creative problem-solving, I uncover core needs and translate them into seamless interfaces. Each design decision balances aesthetic appeal with functional purpose, creating solutions that feel natural and effortless.         
+            I didn't enter tech through the traditional path.
           </p>
           <p className="text-gray-700">
-          At Imaginum, I've elevated products by prioritizing user engagement across touchpoints. My CSED work created design systems that amplified technology's social impact. I bridge human needs and technological possibilities through empathetic, purposeful design. 
-                   </p>
+            I was studying dentistry when war disrupted everything. Instead of waiting for life to restart, I started learning programming, design, branding, and digital systems through self-study.
+          </p>
+          <p className="text-gray-700">
+            Today I build websites, digital products, startup concepts, and online experiences for clients and organizations.
+          </p>
+          <p className="text-gray-700">
+            From nonprofit platforms to business websites and startup systems, I focus on creating products that are visually clean, technically solid, and genuinely useful.
+          </p>
+          <p className="text-gray-700">
+            Beyond coding, I use content creation and storytelling to inspire Sudanese youth to explore technology, freelancing, and digital opportunities.
+          </p>
           
           {/* Interactive terminal with user input */}
           <div className="mt-2 mb-2 w-full max-w-full">

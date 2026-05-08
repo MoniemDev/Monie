@@ -41,42 +41,42 @@ const Experience = () => {
   const experiences: Experience[] = [
     {
       id: 1,
-      role: "",
-      company: "UI/UX Design Intern | Phicsit",
-      period: "May 2025 - July 2025",
+      role: "Front-End Developer & UI Designer",
+      company: "EmojiDesign",
+      period: "2023 - Present",
       description: [
-        "Worked on UI design enhancements and building 10+ core features for the Nexfellow platform. Created user flows and designed UI screens to improve the overall user experience.",
-        "Collaborated with the growth intern to gather feedback, iterate on designs, and deliver the best user experience with new features through continuous improvement cycles."
+        "Worked on branding, web development, and digital experiences for businesses and organizations. Managed social media content and helped clients establish stronger digital presence.",
+        "Delivered modern, responsive websites and digital products combining clean design with solid technical implementation."
       ],
-      keywords: ["User Research", "UI/UX Design", "User Flow", "Collaboration"],
+      keywords: ["Branding", "Web Development", "Social Media", "Digital Design"],
       theme: "Design",
-      linkedin: "https://www.linkedin.com/company/phicsit/"
+      linkedin: ""
     },
     {
       id: 2,
-      role: "CPO & Head of Design",
-      company: "Product Designer | Imaginum",
-      period: "Jan 2025 - May 2025",
+      role: "Media & IT Assistant",
+      company: "Gezira SNO",
+      period: "2023 - 2024",
       description: [
-        "Worked on product design from scratch for digital projects, defining proper product requirements, user flows, and UI design. Created wireframes, low-fidelity and high-fidelity designs for every feature.",
-        "Designed for both web apps and mobile app UI. Collaborated with teammates to clearly share ideas, gather feedback, and bring the best product to life through iterative design processes."
+        "Conducted digital literacy workshops and supported refugee data collection operations using KOBO tools in collaboration with humanitarian initiatives.",
+        "Provided technical support and training to help communities access digital resources and improve data management systems."
       ],
-      keywords: ["Product Design", "Wireframing", "UI/UX", "Collaboration"],
+      keywords: ["Digital Literacy", "Data Collection", "Tech Support", "Humanitarian Work"],
       theme: "Strategy",
-      linkedin: "https://www.linkedin.com/company/imaginumorgg/"
+      linkedin: ""
     },
     {
       id: 3,
-      role: "Tech & Design Head",
-      company: "Tech & Design Head | CSED VITV",
-      period: "Jan 2024 - Jan 2025",
+      role: "Content Creator",
+      company: "TikTok",
+      period: "2023 - Present",
       description: [
-        "Led a team of designers and developers to deliver the best experience for students connecting with the club. Designed and developed tech for events, driving innovation and engagement through creative event designs and marketing materials.",
-        "Mentored juniors through design sessions and spoke on stage to spread the idea of design in startups. Managed PR, creative direction, and event designs to enhance the club's impact."
+        "Built an audience sharing content about web development, career transition, and self-learning during the Sudan war. Reached thousands of followers through educational and motivational tech content.",
+        "Created programming tutorials, career advice, and motivational content to inspire Sudanese youth to explore technology and digital opportunities."
       ],
-      keywords: ["Leadership", "Mentorship", "Event Design", "Public Speaking"],
+      keywords: ["Programming", "Storytelling", "Education", "Content Strategy"],
       theme: "Engagement",
-      linkedin: "https://www.linkedin.com/company/csedvit/"
+      linkedin: ""
     }
   ];
 

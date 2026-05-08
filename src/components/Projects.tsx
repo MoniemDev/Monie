@@ -1,10 +1,9 @@
 import React, { memo } from "react";
-import { ExternalLink, ArrowUpRight } from "lucide-react";
 import { BorderBeam, RainbowButton, WhiteRainbowButton } from "@/features/shared/components/magic-ui";
 import { AnimatedGridPattern } from "@/components/AnimatedGridPattern";
 import { motion, LazyMotion, domAnimation, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
-import { OptimizedImage } from "./OptimizedImage"; // <-- Add this import
+import { OptimizedImage } from "./OptimizedImage";
 
 interface Project {
   id: string;
@@ -131,39 +130,39 @@ ProjectCard.displayName = "ProjectCard";
 const Projects = () => {
   const projects: Project[] = [
     {
-      id: "csedvit",
-      title: "CSED VIT – Official Club Website",
+      id: "trustbuild",
+      title: "TrustBuild",
       year: "2024",
-      description: "Designed and developed a modern, interactive, and standout UI with a clean visual hierarchy, smooth transitions, and responsive layouts. Created an engaging user experience to reflect the club’s identity, events, and initiatives across all devices.",
+      description: "A platform connecting customers with contractors for construction and renovation projects with subscriptions, reviews, and online payments.",
       image: "/images/csedm.webp",
-      tags: ["UI Design", "UX Design", "Web Development"],
-      link: "https://www.csedvit.com/",
+      tags: ["Product Design", "Front-End", "Startup System", "UI/UX"],
+      link: "#",
     },
     {
-      id: "campusmart",
-      title: "Campus Mart – Your College Marketplace",
-      year: "2025",
-      description: "Discover a trusted marketplace built for students. Buy, sell, or exchange books, electronics, essentials, and more—all within your campus community. Easy to use, safe to connect, made for you.",
+      id: "aqmahost",
+      title: "عقمة هوست",
+      year: "2024",
+      description: "A digital platform for managing tourist properties, bookings, owners, smart locks, and payment systems.",
       image: "/images/campusm.webp",
-      tags: ["Product Design", "User Flow", "UI/UX"],
+      tags: ["SaaS", "Dashboard Design", "Booking System", "UI Design"],
       link: "#",
     },
     {
-      id: "cabsync",
-      title: "CabSync – Ride Together",
-      year: "2025",
-      description: "Easily find and share cabs with fellow students heading to the same destination. Save money, travel safely, and reduce your carbon footprint—all in one tap.",
+      id: "wasel",
+      title: "واصل التجارية",
+      year: "2024",
+      description: "Commercial platform concept focused on improving digital accessibility and business operations.",
       image: "/images/cabm.webp",
-      tags: ["App UI/UX", "UI Design", "Prototyping"],
+      tags: ["Business Platform", "UI Design", "Digital Commerce"],
       link: "#",
     },
     {
-      id: "imaginum",
-      title: "Imaginum Website",
-      year: "2025",
-      description: "Portfolio-driven website for a tech-forward creative studio, built to highlight services, showcase work, and deliver a bold, engaging experience aligned with the studio’s vision and design philosophy.",
+      id: "portfolio",
+      title: "Personal Portfolio",
+      year: "2024",
+      description: "Your digital identity and storytelling platform combining development, branding, and personal narrative.",
       image: "/images/imagim.webp",
-      tags: ["UI/UX", "User Centric", "Saas WebDesign"],
+      tags: ["Portfolio", "Branding", "Storytelling", "Web Development"],
       link: "#",
     },
   ];
@@ -186,15 +185,11 @@ const Projects = () => {
           className="absolute inset-x-[60%] inset-y-[40%] w-[60%] h-[60%] -skew-y-12 text-[#3E40EF]/80 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
         />
 
-        
-
-        
-
         <div className="container-custom">
           <div className="mb-8 md:mb-12 text-center">
-            <h2 className="mb-4">My Design Work That Stands Out</h2>
+            <h2 className="mb-4">Real Projects, Real Impact</h2>
             <p className="mx-auto max-w-2xl text-gray-600">
-              Crafting intuitive digital experiences that solve real problems and delight users across platforms and industries.
+              From nonprofit platforms to business websites and startup systems, building products that are visually clean, technically solid, and genuinely useful.
             </p>
             <div className="mx-auto mt-4 h-1 w-24 bg-[#3E40EF]"></div>
           </div>

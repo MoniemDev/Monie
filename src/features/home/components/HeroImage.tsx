@@ -14,18 +14,18 @@ export const HeroImage = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-blue-400/40 to-[#3E40EF]/30 z-10 mix-blend-overlay"></div>
           
           <img 
-            src="\images\anurag.webp" 
-            alt="Anurag Adarsh Potrailt image" 
+            src="/images/moniem.png" 
+            alt="Mohammed Moniem Portrait image" 
             fetchPriority="high"
-            className="w-full h-full object-cover z-20 relative hero-image"
+            className="w-full h-full object-cover object-center z-20 relative hero-image"
           />
         </div>
         
         <div className="absolute bottom-[30px] sm:left-[-60px] left-[0px] bg-white/90 backdrop-blur-sm px-5 py-3 rounded-full shadow-lg z-30 flex items-center gap-4 animate-float" style={{ animationDelay: "0.4s" }}>
           <span className="text-3xl" role="img" aria-label="waving hand">👋</span>
           <div className="text-left">
-            <p className="font-bold text-gray-800">Anurag Adarsh</p>
-            <p className="text-xs text-gray-500">Engineering Student</p>
+            <p className="font-bold text-gray-800">Mohammed Moniem</p>
+            <p className="text-xs text-gray-500">Dental Student</p>
           </div>
         </div>
         
@@ -34,8 +34,8 @@ export const HeroImage = () => {
             <Sparkles className="h-5 w-5 text-white" />
           </div>
           <div className="text-left">
-            <p className="font-bold text-gray-800">UI/UX Designer</p>
-            <p className="text-xs text-[#3E40EF]">Intuitive Design</p>
+            <p className="font-bold text-gray-800">Web Developer</p>
+            <p className="text-xs text-[#3E40EF]">Building Real Products</p>
           </div>
         </div>
       </div>

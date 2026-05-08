@@ -114,29 +114,29 @@ const Skills = () => {
   const handleMouseLeave = () => setIsPaused(false);
 
   const designSkills = [
-    { name: "UI Design", level: 95 },
-    { name: "UX Design", level: 90 },
-    { name: "Interaction Design", level: 85 },
-    { name: "Development", level: 88 },
-    { name: "AI Tools", level: 92 },
-    { name: "React", level: 87 },
+    { name: "HTML", level: 95 },
+    { name: "CSS", level: 92 },
+    { name: "JavaScript", level: 88 },
+    { name: "React", level: 85 },
+    { name: "UI Design", level: 90 },
+    { name: "Figma", level: 93 },
   ];
 
   const technicalSkills = [
+    { name: "HTML", icon: <Code2 className="h-5 w-5" /> },
+    { name: "CSS", icon: <Brush className="h-5 w-5" /> },
+    { name: "JavaScript", icon: <Cpu className="h-5 w-5" /> },
+    { name: "React", icon: <Sparkles className="h-5 w-5" /> },
+    { name: "Git & GitHub", icon: <Container className="h-5 w-5" /> },
+    { name: "Responsive Design", icon: <Layout className="h-5 w-5" /> },
+    { name: "UI Design", icon: <Palette className="h-5 w-5" /> },
     { name: "Figma", icon: <Figma className="h-5 w-5" /> },
-    { name: "User Research", icon: <MousePointer className="h-5 w-5" /> },
-    { name: "Wireframing", icon: <Layout className="h-5 w-5" /> },
-    { name: "Adobe Photoshop", icon: <Layers className="h-5 w-5" /> },
-    { name: "Adobe Illustrator", icon: <Brush className="h-5 w-5" /> },
-    { name: "Prototyping", icon: <Code2 className="h-5 w-5" /> },
-    { name: "Interaction Design", icon: <Sparkles className="h-5 w-5" /> },
-    { name: "Design Systems", icon: <Palette className="h-5 w-5" /> },
-    { name: "Information Architecture", icon: <Container className="h-5 w-5" /> },
-    { name: "User Testing", icon: <FlaskConical className="h-5 w-5" /> },
-    { name: "Visual Design", icon: <DraftingCompass className="h-5 w-5" /> },
-    { name: "Design Thinking", icon: <Gem className="h-5 w-5" /> },
-    { name: "Accessibility", icon: <ScanLine className="h-5 w-5" /> },
-    { name: "UI Animation", icon: <Cpu className="h-5 w-5" /> },
+    { name: "Wireframing", icon: <DraftingCompass className="h-5 w-5" /> },
+    { name: "Branding", icon: <Gem className="h-5 w-5" /> },
+    { name: "Visual Identity", icon: <PenSquare className="h-5 w-5" /> },
+    { name: "TikTok Content", icon: <MousePointer className="h-5 w-5" /> },
+    { name: "Storytelling", icon: <Layers className="h-5 w-5" /> },
+    { name: "KOBO Toolbox", icon: <FlaskConical className="h-5 w-5" /> },
   ];
 
   return (
@@ -193,8 +193,8 @@ const Skills = () => {
               <div className="bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:bg-white/20 transition-all duration-300">
                 <Palette className="text-white h-7 w-7" />
               </div>
-              <h3 className="text-2xl font-bold mb-5 text-white">Design & Development</h3>
-              <p className="text-white/90 mb-6">Combining creative design thinking with technical expertise to build intuitive and efficient digital experiences.</p>
+              <h3 className="text-2xl font-bold mb-5 text-white">Development & Design</h3>
+              <p className="text-white/90 mb-6">Self-taught front-end developer and UI designer combining technical skills with creative problem-solving to build real digital products.</p>
               
               <div className="space-y-4 mt-auto">
                 {designSkills.map((skill, index) => (
@@ -238,10 +238,10 @@ const Skills = () => {
                 <div className="bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/20 transition-all duration-300">
                   <MousePointer className="text-white h-7 w-7" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">Interaction Design</h3>
-                <p className="text-white/90 mb-4">Creating intuitive interfaces with smooth transitions and meaningful animations that enhance user experience.</p>
+                <h3 className="text-2xl font-bold mb-3 text-white">Content & Storytelling</h3>
+                <p className="text-white/90 mb-4">Creating educational content and using storytelling to inspire Sudanese youth to explore technology and digital opportunities.</p>
                 <div className="mt-auto flex flex-wrap gap-3">
-                  {["Micro-interactions", "Motion Design", "User Flows", "Site Mapping"].map((skill) => (
+                  {["TikTok Content", "Programming Education", "Career Transition", "Motivational Content"].map((skill) => (
                     <span 
                       key={skill}
                       className="px-4 py-2 bg-white/10 rounded-full text-sm font-medium group-hover:bg-white/15 transition-all duration-300 text-white"
@@ -263,10 +263,10 @@ const Skills = () => {
                   <div className="bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/20 transition-all duration-300">
                     <Layers className="text-white h-7 w-7" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-white">Prototyping</h3>
-                  <p className="text-white/90 mb-4">Building interactive prototypes to test and validate design solutions.</p>
+                  <h3 className="text-2xl font-bold mb-3 text-white">Branding & Design</h3>
+                  <p className="text-white/90 mb-4">Creating visual identities and design systems that help businesses establish strong digital presence.</p>
                   <div className="mt-auto flex flex-wrap gap-2">
-                    {["High-fidelity", "Low-fidelity", "Interactive", "User Testing"].map((skill, index) => (
+                    {["Visual Identity", "Brand Design", "UI Systems", "Digital Presence"].map((skill, index) => (
                       <span 
                         key={skill}
                         className="px-3 py-1.5 bg-white/10 rounded-full text-sm font-medium group-hover:bg-white/15 transition-all duration-300 text-white"
@@ -283,8 +283,8 @@ const Skills = () => {
                 <div className="absolute -top-20 -left-20 w-40 h-40 bg-white/5 rounded-full group-hover:bg-white/10 transition-all duration-500"></div>
                 
                 <div className="relative z-10 h-full flex flex-col items-center text-center">
-                  <p className="text-white/90 mb-3">Creating structural blueprints to establish hierarchy and layout.</p>
-                  <h3 className="text-2xl font-bold mb-3 text-white">Wireframing</h3>
+                  <p className="text-white/90 mb-3">Building responsive, modern web experiences with clean code and solid technical implementation.</p>
+                  <h3 className="text-2xl font-bold mb-3 text-white">Web Development</h3>
                   {/* Adjusted Globe position */}
                   <div className="flex-1 w-full flex items-center justify-center relative ">
                     <Globe className="scale-[1.25] translate-y-[4%]" />

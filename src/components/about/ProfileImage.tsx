@@ -50,10 +50,10 @@ const ProfileImage = () => {
           muted
           playsInline
           preload="auto"
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[40%] w-[80%] lg:w-[70%] h-auto object-contain"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ pointerEvents: 'none' }}
         >
-          <source src="/images/removed.webm" type="video/webm"  />
+          <source src="/images/about.mov" type="video/mp4"  />
         </video>
 
         {/* Spinning Text - Top Right */}
@@ -64,7 +64,7 @@ const ProfileImage = () => {
               style={{ boxSizing: "border-box" }} 
             >
               <SpinningText 
-                children="ANURAG ADARSH • DESIGNER • UI/UX •" 
+                children="MOHAMMED MONIEM • WEB DEVELOPER • UI DESIGNER •" 
                 className="text-white" 
                 duration={15}
                 radius={4}
