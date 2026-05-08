@@ -6,8 +6,10 @@ import { motion } from "framer-motion";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { ShineBorder } from "@/components/ui/shine-border";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -62,22 +64,21 @@ const Contact = () => {
   };
   
   return (
-    <section id="contact" className="py-12 bg-gradient-to-b from-white to-gray-50/80">
+    <section id="contact" className="py-12 bg-gradient-to-b from-background to-muted/50">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div className="text-center mb-10">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Get In Touch</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{t('contact.title')}</h2>
           <div className="w-24 h-1 bg-accent mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Have a startup idea, business, or project you want to build? 
-            Let's turn it into something real.
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t('contact.subtitle')}
           </p>
         </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <motion.div className="lg:col-span-5 space-y-4">
             {/* Contact Information Card */}
-            <div className="bg-white rounded-2xl shadow-sm p-4 md:p-5 border border-gray-100">
-              <h3 className="text-xl font-bold mb-5 text-gray-800">Contact Information</h3>
+            <div className="bg-card rounded-2xl shadow-sm dark:shadow-accent/5 p-4 md:p-5 border border-border">
+              <h3 className="text-xl font-bold mb-5 text-foreground">{t('contact.info.title')}</h3>
               
               <div className="space-y-5">
                 {/* Contact info items */}
@@ -86,7 +87,7 @@ const Contact = () => {
                     <Mail className="text-accent" size={18} />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-500 text-sm">Email Address</p>
+                    <p className="font-medium text-muted-foreground text-sm">{t('contact.info.email')}</p>
                     <a href="mailto:anuraglife2020@gmail.com" className="text-accent hover:underline font-medium">
                       anuraglife2020@gmail.com
                     </a>
@@ -98,7 +99,7 @@ const Contact = () => {
                     <Phone className="text-accent" size={20} />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-500 text-sm">Phone Number</p>
+                    <p className="font-medium text-muted-foreground text-sm">{t('contact.info.phone')}</p>
                     <a href="tel:+919142405639" className="text-accent hover:underline font-medium">
                       +91 9142405639
                     </a>
@@ -110,47 +111,37 @@ const Contact = () => {
                     <MapPin className="text-accent" size={20} />
                   </div>
                   <div>
-                    <p className="font-medium text-gray-500 text-sm">Location</p>
-                    <p className="text-gray-800 font-medium">Vellore, India</p>
+                    <p className="font-medium text-muted-foreground text-sm">{t('contact.info.location')}</p>
+                    <p className="text-foreground font-medium">{t('contact.info.locationValue')}</p>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Available For Card */}
-            <div className="bg-[#3E40EF] rounded-2xl shadow-md p-4 md:p-5 border border-[#3E40EF]/20 text-white">
+            <div className="bg-accent rounded-2xl shadow-md dark:shadow-accent/10 p-4 md:p-5 border border-accent/20 text-accent-foreground">
               <div className="flex flex-row sm:items-center justify-between gap-3 mb-4">
-                <h4 className="text-xl font-bold text-white">Available For</h4>
-                <div className="flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full self-start">
+                <h4 className="text-xl font-bold text-accent-foreground">{t('contact.available.title')}</h4>
+                <div className="flex items-center bg-accent-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full self-start">
                   <div className="w-2.5 h-2.5 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-                  <span className="text-sm font-medium text-white">Open to Work</span>
+                  <span className="text-sm font-medium text-accent-foreground">{t('contact.available.status')}</span>
                 </div>
               </div>
               
               <ul className="space-y-3 mb-6">
-                <li className="flex items-center text-white/90 group">
-                  <div className="w-2 h-2 bg-white rounded-full mr-3 group-hover:w-3 transition-all duration-300"></div>
-                  <span className="group-hover:text-white transition-colors duration-300">Startup Projects</span>
-                </li>
-                <li className="flex items-center text-white/90 group">
-                  <div className="w-2 h-2 bg-white rounded-full mr-3 group-hover:w-3 transition-all duration-300"></div>
-                  <span className="group-hover:text-white transition-colors duration-300">Business Websites</span>
-                </li>
-                <li className="flex items-center text-white/90 group">
-                  <div className="w-2 h-2 bg-white rounded-full mr-3 group-hover:w-3 transition-all duration-300"></div>
-                  <span className="group-hover:text-white transition-colors duration-300">Digital Products</span>
-                </li>
-                <li className="flex items-center text-white/90 group">
-                  <div className="w-2 h-2 bg-white rounded-full mr-3 group-hover:w-3 transition-all duration-300"></div>
-                  <span className="group-hover:text-white transition-colors duration-300">Remote Freelance Work</span>
-                </li>
+                {(t('contact.available.items', { returnObjects: true }) as string[]).map((item, index) => (
+                  <li key={index} className="flex items-center text-accent-foreground/90 group">
+                    <div className="w-2 h-2 bg-accent-foreground rounded-full mr-3 group-hover:w-3 transition-all duration-300"></div>
+                    <span className="group-hover:text-accent-foreground transition-colors duration-300">{item}</span>
+                  </li>
+                ))}
               </ul>
               
               <Button 
-                className="w-full bg-white hover:bg-white/90 text-black font-semibold py-2.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
+                className="w-full bg-background hover:bg-background/90 text-foreground font-semibold py-2.5 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
                 onClick={() => window.open('https://www.linkedin.com/in/adarshanurag/', '_blank')}
               >
-                <span className="text-black font-semibold">Let's Collaborate</span>
+                <span className="text-foreground font-semibold">{t('contact.available.button')}</span>
                 <ExternalLink size={16} className="ml-2" />
               </Button>
             </div>
@@ -158,7 +149,7 @@ const Contact = () => {
           
           {/* Contact Form Card */}
           <motion.div className="lg:col-span-7 h-full">
-            <div className="bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-gray-100 relative overflow-hidden h-full flex flex-col">
+            <div className="bg-card p-4 md:p-5 rounded-2xl shadow-sm dark:shadow-accent/5 border border-border relative overflow-hidden h-full flex flex-col">
               <ShineBorder 
                 borderWidth={1.1} 
                 duration={10} 
@@ -167,7 +158,7 @@ const Contact = () => {
               />
               
               <div className="relative z-10 flex flex-col flex-grow">
-                <h3 className="text-2xl font-bold mb-8 mt-8 text-gray-800 text-center">Say hi, share your thoughts.</h3>
+                <h3 className="text-2xl font-bold mb-8 mt-8 text-foreground text-center">{t('contact.form.title')}</h3>
                 
                 {isSubmitted ? (
                   <motion.div
@@ -185,20 +176,20 @@ const Contact = () => {
                       <CheckCircle className="text-green-500" size={32} />
                     </motion.div>
                     <motion.h4
-                      className="text-xl font-bold text-gray-800 mb-2"
+                      className="text-xl font-bold text-foreground mb-2"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4, duration: 0.4 }}
                     >
-                      Message Sent!
+                      {t('contact.form.success')}
                     </motion.h4>
                     <motion.p
-                      className="text-gray-600 max-w-md"
+                      className="text-muted-foreground max-w-md"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.6, duration: 0.4 }}
                     >
-                      Thank you for reaching out. I'll get back to you as soon as possible.
+                      {t('contact.form.successMessage')}
                     </motion.p>
                   </motion.div>
                 ) : (
@@ -207,7 +198,7 @@ const Contact = () => {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="relative">
                           <div className={`absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none transition-opacity duration-300 ${formState.name ? 'opacity-100' : 'opacity-70'}`}>
-                            <User className={`w-5 h-5 ${focusedField === 'name' ? 'text-accent' : 'text-gray-400'}`} />
+                            <User className={`w-5 h-5 ${focusedField === 'name' ? 'text-accent' : 'text-muted-foreground'}`} />
                           </div>
                           <input
                             type="text"
@@ -216,15 +207,15 @@ const Contact = () => {
                             onChange={handleChange}
                             onFocus={() => setFocusedField('name')}
                             onBlur={() => setFocusedField(null)}
-                            className={`w-full pl-11 pr-4 py-3 bg-gray-50/50 border ${focusedField === 'name' ? 'border-accent' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300`}
-                            placeholder="Your Name"
+                            className={`w-full pl-11 pr-4 py-3 bg-muted/50 border ${focusedField === 'name' ? 'border-accent' : 'border-border'} rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300`}
+                            placeholder={t('contact.form.name')}
                             required
                           />
                         </div>
                         
                         <div className="relative">
                           <div className={`absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none transition-opacity duration-300 ${formState.email ? 'opacity-100' : 'opacity-70'}`}>
-                            <AtSign className={`w-5 h-5 ${focusedField === 'email' ? 'text-accent' : 'text-gray-400'}`} />
+                            <AtSign className={`w-5 h-5 ${focusedField === 'email' ? 'text-accent' : 'text-muted-foreground'}`} />
                           </div>
                           <input
                             type="email"
@@ -233,8 +224,8 @@ const Contact = () => {
                             onChange={handleChange}
                             onFocus={() => setFocusedField('email')}
                             onBlur={() => setFocusedField(null)}
-                            className={`w-full pl-11 pr-4 py-3 bg-gray-50/50 border ${focusedField === 'email' ? 'border-accent' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300`}
-                            placeholder="Email Address"
+                            className={`w-full pl-11 pr-4 py-3 bg-muted/50 border ${focusedField === 'email' ? 'border-accent' : 'border-border'} rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300`}
+                            placeholder={t('contact.form.email')}
                             required
                           />
                         </div>
@@ -242,7 +233,7 @@ const Contact = () => {
                       
                       <div className="relative">
                         <div className={`absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none transition-opacity duration-300 ${formState.subject ? 'opacity-100' : 'opacity-70'}`}>
-                        <FileText className={`w-5 h-5 ${focusedField === 'subject' ? 'text-accent' : 'text-gray-400'}`} />
+                        <FileText className={`w-5 h-5 ${focusedField === 'subject' ? 'text-accent' : 'text-muted-foreground'}`} />
                         </div>
                         <input
                           type="text"
@@ -251,15 +242,15 @@ const Contact = () => {
                           onChange={handleChange}
                           onFocus={() => setFocusedField('subject')}
                           onBlur={() => setFocusedField(null)}
-                          className={`w-full pl-11 pr-4 py-3 bg-gray-50/50 border ${focusedField === 'subject' ? 'border-accent' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300`}
-                          placeholder="Subject"
+                          className={`w-full pl-11 pr-4 py-3 bg-muted/50 border ${focusedField === 'subject' ? 'border-accent' : 'border-border'} rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300`}
+                          placeholder={t('contact.form.subject')}
                           required
                         />
                       </div>
                       
                       <div className="relative">
                         <div className={`absolute top-3.5 left-0 flex items-start pl-3.5 pointer-events-none transition-opacity duration-300 ${formState.message ? 'opacity-100' : 'opacity-70'}`}>
-                          <MessageSquare className={`w-5 h-5 ${focusedField === 'message' ? 'text-accent' : 'text-gray-400'}`} />
+                          <MessageSquare className={`w-5 h-5 ${focusedField === 'message' ? 'text-accent' : 'text-muted-foreground'}`} />
                         </div>
                         <textarea
                           id="message"
@@ -268,8 +259,8 @@ const Contact = () => {
                           onFocus={() => setFocusedField('message')}
                           onBlur={() => setFocusedField(null)}
                           rows={8}
-                          className={`w-full pl-11 pr-4 py-3 bg-gray-50/50 border ${focusedField === 'message' ? 'border-accent' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300 resize-none`}
-                          placeholder="Your Message"
+                          className={`w-full pl-11 pr-4 py-3 bg-muted/50 border ${focusedField === 'message' ? 'border-accent' : 'border-border'} rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/30 transition-all duration-300 resize-none`}
+                          placeholder={t('contact.form.message')}
                           required
                         ></textarea>
                       </div>
@@ -285,12 +276,12 @@ const Contact = () => {
                         {isSubmitting ? (
                           <>
                             <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                            <span>Sending...</span>
+                            <span>{t('contact.form.sending')}</span>
                           </>
                         ) : (
                           <>
                             <Send size={16} className="mr-2" />
-                            <span>Send Message</span>
+                            <span>{t('contact.form.send')}</span>
                           </>
                         )}
                       </span>

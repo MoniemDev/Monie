@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Calendar } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa6"; 
 import { Card, CardContent } from "./ui/card";
+import { useTranslation } from "react-i18next";
 
 interface Experience {
   id: number;
@@ -16,6 +17,7 @@ interface Experience {
 }
 
 const Experience = () => {
+  const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
   
   // Check if we're on mobile on component mount and window resize
@@ -41,52 +43,52 @@ const Experience = () => {
   const experiences: Experience[] = [
     {
       id: 1,
-      role: "Front-End Developer & UI Designer",
-      company: "EmojiDesign",
-      period: "2023 - Present",
+      role: t('experience.emojidesign.role'),
+      company: t('experience.emojidesign.company'),
+      period: t('experience.emojidesign.period'),
       description: [
-        "Worked on branding, web development, and digital experiences for businesses and organizations. Managed social media content and helped clients establish stronger digital presence.",
-        "Delivered modern, responsive websites and digital products combining clean design with solid technical implementation."
+        t('experience.emojidesign.desc1'),
+        t('experience.emojidesign.desc2')
       ],
-      keywords: ["Branding", "Web Development", "Social Media", "Digital Design"],
+      keywords: t('experience.emojidesign.keywords', { returnObjects: true }) as string[],
       theme: "Design",
       linkedin: ""
     },
     {
       id: 2,
-      role: "Media & IT Assistant",
-      company: "Gezira SNO",
-      period: "2023 - 2024",
+      role: t('experience.gezira.role'),
+      company: t('experience.gezira.company'),
+      period: t('experience.gezira.period'),
       description: [
-        "Conducted digital literacy workshops and supported refugee data collection operations using KOBO tools in collaboration with humanitarian initiatives.",
-        "Provided technical support and training to help communities access digital resources and improve data management systems."
+        t('experience.gezira.desc1'),
+        t('experience.gezira.desc2')
       ],
-      keywords: ["Digital Literacy", "Data Collection", "Tech Support", "Humanitarian Work"],
+      keywords: t('experience.gezira.keywords', { returnObjects: true }) as string[],
       theme: "Strategy",
       linkedin: ""
     },
     {
       id: 3,
-      role: "Content Creator",
-      company: "TikTok",
-      period: "2023 - Present",
+      role: t('experience.tiktok.role'),
+      company: t('experience.tiktok.company'),
+      period: t('experience.tiktok.period'),
       description: [
-        "Built an audience sharing content about web development, career transition, and self-learning during the Sudan war. Reached thousands of followers through educational and motivational tech content.",
-        "Created programming tutorials, career advice, and motivational content to inspire Sudanese youth to explore technology and digital opportunities."
+        t('experience.tiktok.desc1'),
+        t('experience.tiktok.desc2')
       ],
-      keywords: ["Programming", "Storytelling", "Education", "Content Strategy"],
+      keywords: t('experience.tiktok.keywords', { returnObjects: true }) as string[],
       theme: "Engagement",
       linkedin: ""
     }
   ];
 
   return (
-    <section id="experience" className="section-padding bg-white">
+    <section id="experience" className="section-padding bg-background">
       <div className="container-custom max-w-5xl">
         <div className="mb-12 md:mb-16 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Work Experience</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('experience.title')}</h2>
           <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-600 max-w-2xl mx-auto">My professional journey through design leadership and innovation</p>
+          <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">{t('experience.subtitle')}</p>
         </div>
         
         <div className="timeline-container relative pl-6 md:pl-0 md:ml-12">
@@ -105,7 +107,7 @@ const Experience = () => {
               
               {/* Experience card - improved layout */}
               <div className="ml-1 md:ml-12">
-                <Card className="group overflow-hidden border border-gray-100 shadow-md hover:shadow-xl 
+                <Card className="group overflow-hidden border border-border shadow-md hover:shadow-xl dark:shadow-accent/10
                                hover:-translate-y-1 transition-all duration-300 will-change-transform">
                   <CardContent className="p-4 md:p-6">
                     <div className="relative">
@@ -126,7 +128,7 @@ const Experience = () => {
                                 href={exp.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-800 hover:text-blue-700 transition-colors"
+                                className="text-foreground hover:text-blue-700 transition-colors"
                                 aria-label={`LinkedIn for ${exp.company}`}
                               >
                                 <FaLinkedin size={18} />
@@ -139,7 +141,7 @@ const Experience = () => {
                         <div className="flex flex-wrap gap-1.5 md:gap-2 md:max-w-[40%] justify-start md:justify-end">
                           {exp.keywords.map((keyword, i) => (
                             <span key={i} 
-                                  className="inline-flex items-center bg-gray-50 text-gray-600 rounded-full 
+                                  className="inline-flex items-center bg-muted text-muted-foreground rounded-full 
                                            px-3 py-1 text-xs md:text-sm font-medium hover:bg-accent/5 hover:text-accent 
                                            cursor-pointer transition-all duration-300 hover:scale-105">
                               {keyword}
@@ -151,11 +153,11 @@ const Experience = () => {
                       {/* Description list with enhanced interactivity */}
                       <ul className="space-y-1.5 md:space-y-2">
                         {exp.description.map((item, i) => (
-                          <li key={i} className="flex items-start group/item hover:bg-gray-50/50 
+                          <li key={i} className="flex items-start group/item hover:bg-muted/50 
                                                 p-1.5 rounded-lg transition-all duration-300">
                             <div className="flex-shrink-0 w-2 h-2 mt-1.5 mr-2 md:mr-3 bg-accent/30 rounded-full 
                                           group-hover/item:bg-accent group-hover/item:scale-125 transition-all duration-300" />
-                            <span className="text-sm md:text-base text-gray-600 group-hover/item:text-gray-900 transition-colors">
+                            <span className="text-sm md:text-base text-muted-foreground group-hover/item:text-foreground transition-colors">
                               {item.includes('Nexfellow') ? (
                                 <>
                                   {item.split('Nexfellow')[0]}

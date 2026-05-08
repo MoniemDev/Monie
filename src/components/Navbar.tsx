@@ -16,6 +16,9 @@ import {
   WhiteRainbowButton,
 } from "@/features/shared/components/magic-ui";
 import { motion, AnimatePresence } from "framer-motion";
+import { ModeToggle } from "@/components/mode-toggle";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { useTranslation } from "react-i18next";
 
 const BehanceIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -25,6 +28,7 @@ const BehanceIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -88,12 +92,12 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
+    { name: t('nav.about'), href: "#about" },
+    { name: t('nav.skills'), href: "#skills" },
+    { name: t('nav.projects'), href: "#projects" },
+    { name: t('nav.experience'), href: "#experience" },
     { name: "Flyers", href: "#posters" },
-    { name: "Contact", href: "#contact" },
+    { name: t('nav.contact'), href: "#contact" },
   ];
 
   return (
@@ -111,9 +115,9 @@ const Navbar = () => {
           >
             <a
               href="/"
-              className="text-xl font-bold group flex items-center gap-1"
+              className="text-xl font-bold group flex items-center gap-1 text-foreground"
             >
-              <Sparkles className="h-4 w-4 text-[#3E40EF] mr-2" />
+              <Sparkles className="h-4 w-4 text-accent mr-2" />
               <span className="font-display">
                 <div className={isMenuOpen ? "hidden" : "block"}>
                   <WordRotate
@@ -142,7 +146,7 @@ const Navbar = () => {
             }`}
             style={isScrolled ? { left: 0, right: 0 } : {}}
           >
-            <div className="relative bg-white shadow-sm rounded-full px-2 py-2.5 flex items-center gap-1 mx-auto">
+            <div className="relative bg-background dark:bg-card shadow-sm dark:shadow-lg dark:shadow-accent/5 rounded-full px-2 py-2.5 flex items-center gap-1 mx-auto border border-border">
               <BorderBeam
                 colorFrom="#3E40EF"
                 colorTo="#6366F1"
@@ -154,10 +158,10 @@ const Navbar = () => {
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href.substring(1))}
-                  className={`relative z-10 text-sm font-medium px-4 py-2.5 rounded-full transition-all duration-300 hover:text-[#3E40EF] ${
+                  className={`relative z-10 text-sm font-medium px-4 py-2.5 rounded-full transition-all duration-300 hover:text-accent ${
                     activeSection === link.href.substring(1)
-                      ? "bg-[#3E40EF]/10 text-[#3E40EF]"
-                      : "text-gray-700 hover:bg-gray-100"
+                      ? "bg-accent/10 text-accent"
+                      : "text-foreground/70 hover:bg-muted"
                   }`}
                 >
                   {link.name}
@@ -167,10 +171,12 @@ const Navbar = () => {
           </nav>
 
           <div
-            className={`hidden md:flex items-center transition-all duration-300 ${
+            className={`hidden md:flex items-center gap-2 transition-all duration-300 ${
               isScrolled ? "opacity-0 invisible" : "opacity-100 visible"
             }`}
           >
+            <LanguageToggle />
+            <ModeToggle />
             <div className="ml-2">
               <a
                 href="https://drive.google.com/file/d/13sT38haaEyeer0A-SJeqAVRGsHEnaGC1/view?usp=sharing" // <-- Replace with your actual Google Drive resume link
@@ -178,14 +184,14 @@ const Navbar = () => {
                 rel="noopener noreferrer"
               >
                 <RainbowButton className="text-sm px-4 py-1.5">
-                  Resume
+                  {t('nav.resume')}
                 </RainbowButton>
               </a>
             </div>
           </div>
 
           <button
-            className={`md:hidden relative z-50 p-2 rounded-full bg-white flex items-center justify-center transition-all duration-300 ${
+            className={`md:hidden relative z-50 p-2 rounded-full bg-background dark:bg-card border border-border flex items-center justify-center transition-all duration-300 ${
               isScrolled ? "opacity-0 invisible" : "opacity-100 visible"
             }`}
             onClick={toggleMenu}
@@ -199,19 +205,19 @@ const Navbar = () => {
             <div className="w-6 h-6 flex items-center justify-center">
               <div className="relative w-5 h-5 flex items-center justify-center">
                 <span
-                  className={`absolute h-[2px] w-5 rounded-full bg-[#3E40EF] transition-all duration-300 ease-out ${
+                  className={`absolute h-[2px] w-5 rounded-full bg-accent transition-all duration-300 ease-out ${
                     isMenuOpen ? "rotate-45" : "translate-y-[-4px]"
                   }`}
                 ></span>
 
                 <span
-                  className={`absolute h-[2px] w-5 rounded-full bg-[#3E40EF] transition-all duration-300 ease-out ${
+                  className={`absolute h-[2px] w-5 rounded-full bg-accent transition-all duration-300 ease-out ${
                     isMenuOpen ? "opacity-0" : "opacity-100"
                   }`}
                 ></span>
 
                 <span
-                  className={`absolute h-[2px] w-5 rounded-full bg-[#3E40EF] transition-all duration-300 ease-out ${
+                  className={`absolute h-[2px] w-5 rounded-full bg-accent transition-all duration-300 ease-out ${
                     isMenuOpen ? "-rotate-45" : "translate-y-[4px]"
                   }`}
                 ></span>

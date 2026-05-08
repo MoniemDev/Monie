@@ -8,8 +8,10 @@ import { IoLogoLinkedin } from "react-icons/io5";
 import { RiInstagramFill } from "react-icons/ri";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBehance } from "@fortawesome/free-brands-svg-icons";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const year = new Date().getFullYear();
   const [isHeartAnimating, setIsHeartAnimating] = useState(false);
   const [showShareTooltip, setShowShareTooltip] = useState(false);
@@ -27,12 +29,12 @@ const Footer = () => {
   };
   
   const navLinks = [
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Experience", href: "#experience" },
-    { name: "Posters", href: "#posters" },
-    { name: "Contact", href: "#contact" },
+    { name: t('nav.about'), href: "#about" },
+    { name: t('nav.skills'), href: "#skills" },
+    { name: t('nav.projects'), href: "#projects" },
+    { name: t('nav.experience'), href: "#experience" },
+    { name: t('nav.flyers', 'Flyers'), href: "#posters" },
+    { name: t('nav.contact'), href: "#contact" },
   ];
   
   // Add this BehanceIcon component above Footer
@@ -57,16 +59,16 @@ const Footer = () => {
     });
   };
 
-  const impactText = "Let's Design Experiences That Make an Impact! 🤝";
+  const impactText = t('footer.impactText');
   const words = impactText.split(' ');
 
   return (
-    <footer className="bg-white p-1 pb-1">
-      <div className="rounded-3xl bg-[#3E40EF] text-white relative pt-20 pb-10 overflow-hidden mx-4 mb-4">
+    <footer className="bg-background p-1 pb-1">
+      <div className="rounded-3xl bg-accent text-accent-foreground relative pt-20 pb-10 overflow-hidden mx-4 mb-4">
         {/* Go to top button */}
         <button 
           onClick={scrollToTop}
-          className="absolute top-8 right-8 w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#3E40EF] hover:bg-gray-100 transition-colors shadow-md"
+          className="absolute top-8 right-8 w-10 h-10 rounded-full bg-background flex items-center justify-center text-accent hover:bg-background/90 transition-colors shadow-md"
           aria-label="Go to top"
         >
           <ArrowUp size={18} />
@@ -79,7 +81,7 @@ const Footer = () => {
             <div className="md:col-span-7 space-y-6">
               <div>
                 <a href="#" className="text-2xl font-bold">
-                  <span className="font-display">Anurag Adarsh</span>
+                  <span className="font-display">{t('footer.name')}</span>
                 </a>
               </div>
               
@@ -92,9 +94,9 @@ const Footer = () => {
               <div className="flex flex-wrap gap-4 pb-12">
                 <a 
                   href="/#contact"
-                  className="inline-flex items-center justify-center w-36 px-5 py-2.5 bg-black text-white rounded-full font-medium hover:bg-gray-900 transition-colors"
+                  className="inline-flex items-center justify-center w-36 px-5 py-2.5 bg-background text-foreground rounded-full font-medium hover:bg-background/90 transition-colors"
                 >
-                  Let's Talk <ArrowUp className="ml-2 rotate-45" size={16} />
+                  {t('footer.letsTalk')} <ArrowUp className="ml-2 rotate-45" size={16} />
                 </a>
                 
                 <div className="relative">
@@ -102,8 +104,8 @@ const Footer = () => {
                     onClick={() => {
                       if (navigator.share) {
                         navigator.share({
-                          title: 'Anurag Adarsh Portfolio',
-                          text: 'Check out my portfolio showcasing UI/UX design work',
+                          title: t('footer.shareTitle'),
+                          text: t('footer.shareText'),
                           url: 'https://anuragadarsh.in',
                         })
                         .catch(err => {
@@ -116,20 +118,20 @@ const Footer = () => {
                         handleShareClick();
                       }
                     }}
-                    className="inline-flex items-center justify-center w-40 px-5 py-2.5 rounded-full bg-white/10 text-sm text-white hover:bg-white/20 transition-colors"
+                    className="inline-flex items-center justify-center w-40 px-5 py-2.5 rounded-full bg-background/10 text-sm text-accent-foreground hover:bg-background/20 transition-colors"
                   >
                     <Share2 size={16} className="mr-2" />
-                    <span className="whitespace-nowrap">Share Portfolio</span>
+                    <span className="whitespace-nowrap">{t('footer.share')}</span>
                   </button>
                   
                   {/* Tooltip for share confirmation */}
                   {showShareTooltip && (
-                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs py-2 px-4 rounded-lg shadow-lg">
+                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-background text-foreground text-xs py-2 px-4 rounded-lg shadow-lg border border-border">
                       <div className="flex items-center space-x-1">
                         <GlobeIcon size={12} />
                         <span>anuragadarsh.in copied!</span>
                       </div>
-                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-black"></div>
+                      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-background border-r border-b border-border"></div>
                     </div>
                   )}
                 </div>
@@ -143,7 +145,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 hover:scale-105 transition-all duration-300 text-sm shadow-sm hover:shadow-md backdrop-blur-sm"
+                    className="px-4 py-2.5 rounded-full bg-background/10 flex items-center justify-center text-accent-foreground hover:bg-background/20 hover:scale-105 transition-all duration-300 text-sm shadow-sm hover:shadow-md backdrop-blur-sm"
                     aria-label={social.name}
                   >
                     <span className="mr-2">
@@ -166,14 +168,14 @@ const Footer = () => {
           </div>
           
           {/* Bottom section with copyright and made with love */}
-          <div className="border-t border-white/20 pt-8">
+          <div className="border-t border-accent-foreground/20 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-white/80 text-sm mb-4 md:mb-0">
-                © {year} Anurag Adarsh • All rights reserved
+              <p className="text-accent-foreground/80 text-sm mb-4 md:mb-0">
+                {t('footer.rights', { year })}
               </p>
               
               <div 
-                className="text-sm text-white/80 flex items-center cursor-pointer group"
+                className="text-sm text-accent-foreground/80 flex items-center cursor-pointer group"
                 onClick={handleHeartClick}
               >
                 Made with 
@@ -185,7 +187,7 @@ const Footer = () => {
                   {/* Bubbling hearts animation */}
                   <BubblingHearts isAnimating={isHeartAnimating} />
                 </span> 
-                by Anurag
+                by {t('footer.name')}
               </div>
             </div>
           </div>

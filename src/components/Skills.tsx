@@ -18,8 +18,10 @@ import {
 } from "lucide-react";
 import { Globe } from "@/features/shared/components/magic-ui/Globe";
 import useIntersectionObserver from "@/hooks/use-intersection-observer";
+import { useTranslation } from "react-i18next";
 
 const Skills = () => {
+  const { t } = useTranslation();
   const [isVisible, skillsRef] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1 });
   const sliderRef = useRef<HTMLDivElement>(null);
   const isDraggingRef = useRef(false);
@@ -118,39 +120,39 @@ const Skills = () => {
     { name: "CSS", level: 92 },
     { name: "JavaScript", level: 88 },
     { name: "React", level: 85 },
-    { name: "UI Design", level: 90 },
+    { name: t('skills.development.skills.4'), level: 90 },
     { name: "Figma", level: 93 },
   ];
 
-  const technicalSkills = [
+  const technicalSkillsData = [
     { name: "HTML", icon: <Code2 className="h-5 w-5" /> },
     { name: "CSS", icon: <Brush className="h-5 w-5" /> },
     { name: "JavaScript", icon: <Cpu className="h-5 w-5" /> },
     { name: "React", icon: <Sparkles className="h-5 w-5" /> },
     { name: "Git & GitHub", icon: <Container className="h-5 w-5" /> },
-    { name: "Responsive Design", icon: <Layout className="h-5 w-5" /> },
-    { name: "UI Design", icon: <Palette className="h-5 w-5" /> },
+    { name: t('skills.technicalSkills.5'), icon: <Layout className="h-5 w-5" /> },
+    { name: t('skills.technicalSkills.6'), icon: <Palette className="h-5 w-5" /> },
     { name: "Figma", icon: <Figma className="h-5 w-5" /> },
-    { name: "Wireframing", icon: <DraftingCompass className="h-5 w-5" /> },
-    { name: "Branding", icon: <Gem className="h-5 w-5" /> },
-    { name: "Visual Identity", icon: <PenSquare className="h-5 w-5" /> },
-    { name: "TikTok Content", icon: <MousePointer className="h-5 w-5" /> },
-    { name: "Storytelling", icon: <Layers className="h-5 w-5" /> },
+    { name: t('skills.technicalSkills.8'), icon: <DraftingCompass className="h-5 w-5" /> },
+    { name: t('skills.technicalSkills.9'), icon: <Gem className="h-5 w-5" /> },
+    { name: t('skills.technicalSkills.10'), icon: <PenSquare className="h-5 w-5" /> },
+    { name: t('skills.technicalSkills.11'), icon: <MousePointer className="h-5 w-5" /> },
+    { name: t('skills.technicalSkills.12'), icon: <Layers className="h-5 w-5" /> },
     { name: "KOBO Toolbox", icon: <FlaskConical className="h-5 w-5" /> },
   ];
 
   return (
-    <section id="skills" className="section-padding bg-gray-50 overflow-hidden">
+    <section id="skills" className="section-padding bg-muted/30 overflow-hidden">
       
       <div className="container-custom">
         <div className="mb-10">
-          <h2 className="mb-4">My Skills</h2>
+          <h2 className="mb-4">{t('skills.title')}</h2>
           <div className="w-24 h-1 bg-accent"></div>
         </div>
         
         <div className="relative mb-12 py-6 overflow-hidden" id="skills-carousel">
-          <div className="absolute left-0 top-0 h-full w-[15%] bg-gradient-to-r from-gray-50 to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 h-full w-[15%] bg-gradient-to-l from-gray-50 to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 h-full w-[15%] bg-gradient-to-r from-background to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 h-full w-[15%] bg-gradient-to-l from-background to-transparent z-10"></div>
           
           <div 
             ref={sliderRef}
@@ -165,16 +167,16 @@ const Skills = () => {
             }}
           >
             <div className="flex gap-4">
-              {technicalSkills.map((skill, index) => (
+              {technicalSkillsData.map((skill, index) => (
                 <div 
                   key={`${skill.name}-${index}`}
-                  className="flex-none bg-white rounded-xl shadow-md p-4 flex items-center gap-3 transform hover:scale-105 transition-transform duration-200"
+                  className="flex-none bg-card rounded-xl shadow-md dark:shadow-accent/5 p-4 flex items-center gap-3 transform hover:scale-105 transition-transform duration-200 border border-border"
                   style={{ minWidth: '180px' }}
                 >
-                  <div className="bg-[#3E40EF]/10 p-2 rounded-lg">
+                  <div className="bg-accent/10 p-2 rounded-lg">
                     {skill.icon}
                   </div>
-                  <span className="font-medium">{skill.name}</span>
+                  <span className="font-medium text-foreground">{skill.name}</span>
                 </div>
               ))}
             </div>
@@ -184,28 +186,28 @@ const Skills = () => {
         <div className="grid grid-cols-12 gap-5">
           <div 
             ref={skillsRef}
-            className="col-span-12 md:col-span-5 bg-[#3E40EF] rounded-2xl shadow-md p-7 flex flex-col transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg group relative overflow-hidden"
+            className="col-span-12 md:col-span-5 bg-accent rounded-2xl shadow-md dark:shadow-accent/10 p-7 flex flex-col transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg group relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 group-hover:bg-white/10 transition-all duration-500"></div>
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full -ml-24 -mb-24 group-hover:bg-white/10 transition-all duration-500"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent-foreground/5 rounded-full -mr-32 -mt-32 group-hover:bg-accent-foreground/10 transition-all duration-500"></div>
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent-foreground/5 rounded-full -ml-24 -mb-24 group-hover:bg-accent-foreground/10 transition-all duration-500"></div>
             
             <div className="relative z-10 h-full flex flex-col">
-              <div className="bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:bg-white/20 transition-all duration-300">
-                <Palette className="text-white h-7 w-7" />
+              <div className="bg-accent-foreground/10 w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:bg-accent-foreground/20 transition-all duration-300">
+                <Palette className="text-accent-foreground h-7 w-7" />
               </div>
-              <h3 className="text-2xl font-bold mb-5 text-white">Development & Design</h3>
-              <p className="text-white/90 mb-6">Self-taught front-end developer and UI designer combining technical skills with creative problem-solving to build real digital products.</p>
+              <h3 className="text-2xl font-bold mb-5 text-accent-foreground">{t('skills.development.title')}</h3>
+              <p className="text-accent-foreground/90 mb-6">{t('skills.development.description')}</p>
               
               <div className="space-y-4 mt-auto">
                 {designSkills.map((skill, index) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-1.5">
-                      <span className="font-medium text-white">{skill.name}</span>
-                      <span className="text-white/70">{skill.level}%</span>
+                      <span className="font-medium text-accent-foreground">{skill.name}</span>
+                      <span className="text-accent-foreground/70">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
+                    <div className="w-full bg-accent-foreground/10 rounded-full h-2.5 overflow-hidden">
                       <div
-                        className="bg-white h-2.5 rounded-full transition-all transform-gpu"
+                        className="bg-accent-foreground h-2.5 rounded-full transition-all transform-gpu"
                         style={{ 
                           width: isVisible ? `${skill.level}%` : '0%',
                           transitionProperty: 'width, transform',
@@ -222,7 +224,7 @@ const Skills = () => {
               
               <div className="absolute bottom-6 right-6 grid grid-cols-3 gap-1 opacity-20">
                 {[...Array(9)].map((_, i) => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-white"></div>
+                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-accent-foreground"></div>
                 ))}
               </div>
             </div>
@@ -231,20 +233,20 @@ const Skills = () => {
           {/* Right column container */}
           <div className="col-span-12 md:col-span-7 grid grid-rows-1 gap-5">
             {/* Interaction Design - Top right box */}
-            <div className="bg-[#3E40EF] rounded-2xl shadow-md p-6 transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg group relative overflow-hidden">
-              <div className="absolute -top-20 -right-20 w-40 h-40 bg-white/5 rounded-full group-hover:bg-white/10 transition-all duration-500"></div>
+            <div className="bg-accent rounded-2xl shadow-md dark:shadow-accent/10 p-6 transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg group relative overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent-foreground/5 rounded-full group-hover:bg-accent-foreground/10 transition-all duration-500"></div>
               
               <div className="relative z-10 flex flex-col h-full">
-                <div className="bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/20 transition-all duration-300">
-                  <MousePointer className="text-white h-7 w-7" />
+                <div className="bg-accent-foreground/10 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent-foreground/20 transition-all duration-300">
+                  <MousePointer className="text-accent-foreground h-7 w-7" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-white">Content & Storytelling</h3>
-                <p className="text-white/90 mb-4">Creating educational content and using storytelling to inspire Sudanese youth to explore technology and digital opportunities.</p>
+                <h3 className="text-2xl font-bold mb-3 text-accent-foreground">{t('skills.content.title')}</h3>
+                <p className="text-accent-foreground/90 mb-4">{t('skills.content.description')}</p>
                 <div className="mt-auto flex flex-wrap gap-3">
-                  {["TikTok Content", "Programming Education", "Career Transition", "Motivational Content"].map((skill) => (
+                  {(t('skills.content.items', { returnObjects: true }) as string[]).map((skill) => (
                     <span 
                       key={skill}
-                      className="px-4 py-2 bg-white/10 rounded-full text-sm font-medium group-hover:bg-white/15 transition-all duration-300 text-white"
+                      className="px-4 py-2 bg-accent-foreground/10 rounded-full text-sm font-medium group-hover:bg-accent-foreground/15 transition-all duration-300 text-accent-foreground"
                     >
                       {skill}
                     </span>
@@ -256,20 +258,20 @@ const Skills = () => {
             {/* Bottom right container for Prototyping and Wireframing */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {/* Prototyping - Bottom left of the right column */}
-              <div className="bg-[#3E40EF] rounded-2xl shadow-md p-6 transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg group relative overflow-hidden">
-                <div className="absolute -top-10 -left-10 w-20 h-20 bg-white/5 rounded-full group-hover:bg-white/10 transition-all duration-500"></div>
+              <div className="bg-accent rounded-2xl shadow-md dark:shadow-accent/10 p-6 transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg group relative overflow-hidden">
+                <div className="absolute -top-10 -left-10 w-20 h-20 bg-accent-foreground/5 rounded-full group-hover:bg-accent-foreground/10 transition-all duration-500"></div>
                 
                 <div className="relative z-10 h-full flex flex-col">
-                  <div className="bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:bg-white/20 transition-all duration-300">
-                    <Layers className="text-white h-7 w-7" />
+                  <div className="bg-accent-foreground/10 w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:bg-accent-foreground/20 transition-all duration-300">
+                    <Layers className="text-accent-foreground h-7 w-7" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-3 text-white">Branding & Design</h3>
-                  <p className="text-white/90 mb-4">Creating visual identities and design systems that help businesses establish strong digital presence.</p>
+                  <h3 className="text-2xl font-bold mb-3 text-accent-foreground">{t('skills.branding.title')}</h3>
+                  <p className="text-accent-foreground/90 mb-4">{t('skills.branding.description')}</p>
                   <div className="mt-auto flex flex-wrap gap-2">
-                    {["Visual Identity", "Brand Design", "UI Systems", "Digital Presence"].map((skill, index) => (
+                    {(t('skills.branding.items', { returnObjects: true }) as string[]).map((skill, index) => (
                       <span 
                         key={skill}
-                        className="px-3 py-1.5 bg-white/10 rounded-full text-sm font-medium group-hover:bg-white/15 transition-all duration-300 text-white"
+                        className="px-3 py-1.5 bg-accent-foreground/10 rounded-full text-sm font-medium group-hover:bg-accent-foreground/15 transition-all duration-300 text-accent-foreground"
                       >
                         {skill}
                       </span>
@@ -279,12 +281,12 @@ const Skills = () => {
               </div>
               
               {/* Wireframing - Bottom right */}
-              <div className="bg-[#3E40EF] min-h-[280px] rounded-2xl shadow-md p-6 transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg group relative overflow-hidden">
-                <div className="absolute -top-20 -left-20 w-40 h-40 bg-white/5 rounded-full group-hover:bg-white/10 transition-all duration-500"></div>
+              <div className="bg-accent min-h-[280px] rounded-2xl shadow-md dark:shadow-accent/10 p-6 transform hover:scale-[1.02] transition-all duration-300 hover:shadow-lg group relative overflow-hidden">
+                <div className="absolute -top-20 -left-20 w-40 h-40 bg-accent-foreground/5 rounded-full group-hover:bg-accent-foreground/10 transition-all duration-500"></div>
                 
                 <div className="relative z-10 h-full flex flex-col items-center text-center">
-                  <p className="text-white/90 mb-3">Building responsive, modern web experiences with clean code and solid technical implementation.</p>
-                  <h3 className="text-2xl font-bold mb-3 text-white">Web Development</h3>
+                  <p className="text-accent-foreground/90 mb-3">{t('skills.webdev.description')}</p>
+                  <h3 className="text-2xl font-bold mb-3 text-accent-foreground">{t('skills.webdev.title')}</h3>
                   {/* Adjusted Globe position */}
                   <div className="flex-1 w-full flex items-center justify-center relative ">
                     <Globe className="scale-[1.25] translate-y-[4%]" />

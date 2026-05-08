@@ -41,13 +41,13 @@ export const OptimizedImage = memo(({
     <div className={cn("relative overflow-hidden", className)}>
       {!isLoaded && !error && (
         <div 
-          className="absolute inset-0 bg-gray-200 animate-pulse" 
+          className="absolute inset-0 bg-muted animate-pulse" 
           style={{ width, height }}
         />
       )}
       
       {error ? (
-        <div className="flex items-center justify-center w-full h-full bg-gray-100 text-gray-400">
+        <div className="flex items-center justify-center w-full h-full bg-muted text-muted-foreground">
           Unable to load image
         </div>
       ) : (

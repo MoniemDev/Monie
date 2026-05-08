@@ -1,0 +1,229 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "flyers": "Flyers",
+    "contact": "Contact",
+    "resume": "Resume"
+  },
+  "hero": {
+    "roles": {
+      "frontend": "Front-End Developer",
+      "designer": "UI Designer",
+      "creator": "Content Creator",
+      "builder": "Startup Builder"
+    },
+    "title1": "I Design & Build",
+    "title2": "Digital Products That",
+    "title3": "Solve Real Problems",
+    "description": "Self-taught front-end developer and UI designer from Sudan. I started learning programming during the war while my dental studies were paused. Today I build websites, digital products, and startup ideas for real clients and businesses.",
+    "viewProjects": "View Projects",
+    "workTogether": "Let's Work Together",
+    "badges": {
+      "name": "Mohammed Moniem",
+      "dental": "Dental Student",
+      "developer": "Web Developer",
+      "designer": "UI Designer",
+      "location": "Sudan 🇸🇩"
+    },
+    "floatingBadges": {
+      "developer": "Web Developer",
+      "building": "Building Real Products"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "badge": "From Dental School to Digital Products",
+    "intro": "Hey, I'm Mohammed Moniem — a former dental student who found a new path through technology during one of the hardest periods in Sudan. What started as curiosity became a full transition into front-end development, UI design, and digital product building. I design and develop modern websites, create user-focused experiences, and help businesses move beyond just social media into real digital presence.",
+    "terminal": {
+      "greeting": "<hello world />",
+      "line1": "I didn't enter tech through the traditional path.",
+      "line2": "I was studying dentistry when war disrupted everything. Instead of waiting for life to restart, I started learning programming, design, branding, and digital systems through self-study.",
+      "line3": "Today I build websites, digital products, startup concepts, and online experiences for clients and organizations.",
+      "line4": "From nonprofit platforms to business websites and startup systems, I focus on creating products that are visually clean, technically solid, and genuinely useful.",
+      "line5": "Beyond coding, I use content creation and storytelling to inspire Sudanese youth to explore technology, freelancing, and digital opportunities."
+    },
+    "education": {
+      "title": "Education",
+      "degree": "Faculty of Dentistry",
+      "university": "University Student — Sudan",
+      "selfTaught": "Self-Taught Front-End Development & UI Design"
+    },
+    "location": {
+      "title": "Location",
+      "place": "Based in Sudan",
+      "availability": "Available for Remote Work"
+    },
+    "experienceBox": {
+      "title": "Experience",
+      "role1": "Front-End Developer & UI Designer",
+      "role2": "Content Creator | TikTok"
+    },
+    "spinning": "MOHAMMED MONIEM • WEB DEVELOPER • UI DESIGNER •"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "subtitle": "My professional journey through design leadership and innovation",
+    "emojidesign": {
+      "role": "Front-End Developer & UI Designer",
+      "company": "EmojiDesign",
+      "period": "2023 - Present",
+      "desc1": "Worked on branding, web development, and digital experiences for businesses and organizations. Managed social media content and helped clients establish stronger digital presence.",
+      "desc2": "Delivered modern, responsive websites and digital products combining clean design with solid technical implementation.",
+      "keywords": ["Branding", "Web Development", "Social Media", "Digital Design"]
+    },
+    "gezira": {
+      "role": "Media & IT Assistant",
+      "company": "Gezira SNO",
+      "period": "2023 - 2024",
+      "desc1": "Conducted digital literacy workshops and supported refugee data collection operations using KOBO tools in collaboration with humanitarian initiatives.",
+      "desc2": "Provided technical support and training to help communities access digital resources and improve data management systems.",
+      "keywords": ["Digital Literacy", "Data Collection", "Tech Support", "Humanitarian Work"]
+    },
+    "tiktok": {
+      "role": "Content Creator",
+      "company": "TikTok",
+      "period": "2023 - Present",
+      "desc1": "Built an audience sharing content about web development, career transition, and self-learning during the Sudan war. Reached thousands of followers through educational and motivational tech content.",
+      "desc2": "Created programming tutorials, career advice, and motivational content to inspire Sudanese youth to explore technology and digital opportunities.",
+      "keywords": ["Programming", "Storytelling", "Education", "Content Strategy"]
+    }
+  },
+  "projects": {
+    "title": "Real Projects, Real Impact",
+    "subtitle": "From nonprofit platforms to business websites and startup systems, building products that are visually clean, technically solid, and genuinely useful.",
+    "viewProject": "View Project",
+    "trustbuild": {
+      "title": "TrustBuild",
+      "year": "2024",
+      "description": "A platform connecting customers with contractors for construction and renovation projects with subscriptions, reviews, and online payments.",
+      "tags": ["Product Design", "Front-End", "Startup System", "UI/UX"]
+    },
+    "aqmahost": {
+      "title": "عقمة هوست",
+      "year": "2024",
+      "description": "A digital platform for managing tourist properties, bookings, owners, smart locks, and payment systems.",
+      "tags": ["SaaS", "Dashboard Design", "Booking System", "UI Design"]
+    },
+    "wasel": {
+      "title": "واصل التجارية",
+      "year": "2024",
+      "description": "Commercial platform concept focused on improving digital accessibility and business operations.",
+      "tags": ["Business Platform", "UI Design", "Digital Commerce"]
+    },
+    "portfolio": {
+      "title": "Personal Portfolio",
+      "year": "2024",
+      "description": "Your digital identity and storytelling platform combining development, branding, and personal narrative.",
+      "tags": ["Portfolio", "Branding", "Storytelling", "Web Development"]
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "development": {
+      "title": "Development & Design",
+      "description": "Self-taught front-end developer and UI designer combining technical skills with creative problem-solving to build real digital products.",
+      "skills": ["HTML", "CSS", "JavaScript", "React", "UI Design", "Figma"]
+    },
+    "content": {
+      "title": "Content & Storytelling",
+      "description": "Creating educational content and using storytelling to inspire Sudanese youth to explore technology and digital opportunities.",
+      "items": ["TikTok Content", "Programming Education", "Career Transition", "Motivational Content"]
+    },
+    "branding": {
+      "title": "Branding & Design",
+      "description": "Creating visual identities and design systems that help businesses establish strong digital presence.",
+      "items": ["Visual Identity", "Brand Design", "UI Systems", "Digital Presence"]
+    },
+    "webdev": {
+      "title": "Web Development",
+      "description": "Building responsive, modern web experiences with clean code and solid technical implementation."
+    },
+    "technicalSkills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Git & GitHub",
+      "Responsive Design",
+      "UI Design",
+      "Figma",
+      "Wireframing",
+      "Branding",
+      "Visual Identity",
+      "TikTok Content",
+      "Storytelling",
+      "KOBO Toolbox"
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have a startup idea, business, or project you want to build? Let's turn it into something real.",
+    "info": {
+      "title": "Contact Information",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "location": "Location",
+      "locationValue": "Vellore, India"
+    },
+    "available": {
+      "title": "Available For",
+      "status": "Open to Work",
+      "items": ["Startup Projects", "Business Websites", "Digital Products", "Remote Freelance Work"],
+      "button": "Let's Collaborate"
+    },
+    "form": {
+      "title": "Say hi, share your thoughts.",
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Your Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message Sent!",
+      "successMessage": "Thank you for reaching out. I'll get back to you as soon as possible."
+    }
+  },
+  "footer": {
+    "rights": "© {{year}} Mohammed Moniem • All rights reserved",
+    "share": "Share Portfolio",
+    "shareTitle": "Mohammed Moniem Portfolio",
+    "shareText": "Check out my portfolio showcasing UI/UX design work",
+    "impactText": "Let's Design Experiences That Make an Impact! 🤝",
+    "letsTalk": "Let's Talk",
+    "name": "Mohammed Moniem"
+  },
+  "posters": {
+    "title": "Graphic Design Skills",
+    "subtitle": "Showcasing visual storytelling through diverse design projects that combine aesthetics with strategic communication.",
+    "items": {
+      "csed": {
+        "title": "CSED Website Launch",
+        "description": "Design and innovation come together in this launch poster."
+      },
+      "portfolio": {
+        "title": "Portfolio Launch Poster",
+        "description": "A clean and catchy design for portfolio launch poster"
+      },
+      "sustainable": {
+        "title": "Sustainable Event Poster",
+        "description": "Approaching problems with fun and creativity leads to unique and enjoyable solutions."
+      },
+      "eventFlyers": {
+        "title": "EVENT FLYERS",
+        "description": "Code4Change Event poster for marketing."
+      },
+      "imaginum": {
+        "title": "Imaginum Flyers",
+        "description": "Showcasing creativity, design, and innovative solutions."
+      },
+      "announcement": {
+        "title": "Event Announcement Poster",
+        "description": "Campaign promoting environmental awareness"
+      }
+    }
+  }
+}

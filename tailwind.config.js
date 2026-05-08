@@ -67,8 +67,8 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      display: ['Manrope', 'sans-serif'],
+      sans: ['Vazirmatn', 'sans-serif'],
+      display: ['Vazirmatn', 'sans-serif'],
     },
   },
   plugins: [],

@@ -52,7 +52,7 @@ const Index = () => {
 
   return (
     <LazyMotion features={domAnimation}>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-background transition-colors duration-300">
         
         <Navbar />
         <Hero />

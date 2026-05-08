@@ -1,12 +1,15 @@
 
 import React from "react";
 import InteractiveTerminal from "../InteractiveTerminal";
+import { useTranslation } from "react-i18next";
 
 const TerminalContent = () => {
+  const { t } = useTranslation();
+  
   return (
-    <div className="h-[660px] lg:h-[450px] bg-[#ffffff] rounded-lg border border-gray-200 p-6 relative shadow-sm overflow-hidden">
+    <div className="h-[660px] lg:h-[450px] bg-card rounded-lg border border-border p-6 relative shadow-sm dark:shadow-accent/5 overflow-hidden">
       {/* Terminal Header */}
-      <div className="absolute top-0 left-0 right-0 h-10 bg-[#121212] rounded-t-lg border-b border-gray-350 flex items-center px-4">
+      <div className="absolute top-0 left-0 right-0 h-10 bg-[#121212] dark:bg-[#0a0a0a] rounded-t-lg border-b border-border flex items-center px-4">
         <div className="flex gap-2">
           <div className="h-3 w-3 rounded-full bg-[#FF5F56]"></div>
           <div className="h-3 w-3 rounded-full bg-[#FFBD2E]"></div>
@@ -19,25 +22,25 @@ const TerminalContent = () => {
 
       {/* Terminal Content with Blinking Cursor and Typing Effect */}
       <div className="mt-6">
-        <p className="text-[#424242] font-mono text-base mb-2">
-          {'<hello world />'}
+        <p className="text-muted-foreground font-mono text-base mb-2">
+          {t('about.terminal.greeting')}
         </p>
         
-        <div className="space-y-6 text-[#7e7e7e] font-display text-base leading-relaxed pr-2">
-          <p className="text-gray-700">
-            I didn't enter tech through the traditional path.
+        <div className="space-y-6 text-muted-foreground font-display text-base leading-relaxed pr-2">
+          <p className="text-foreground">
+            {t('about.terminal.line1')}
           </p>
-          <p className="text-gray-700">
-            I was studying dentistry when war disrupted everything. Instead of waiting for life to restart, I started learning programming, design, branding, and digital systems through self-study.
+          <p className="text-foreground">
+            {t('about.terminal.line2')}
           </p>
-          <p className="text-gray-700">
-            Today I build websites, digital products, startup concepts, and online experiences for clients and organizations.
+          <p className="text-foreground">
+            {t('about.terminal.line3')}
           </p>
-          <p className="text-gray-700">
-            From nonprofit platforms to business websites and startup systems, I focus on creating products that are visually clean, technically solid, and genuinely useful.
+          <p className="text-foreground">
+            {t('about.terminal.line4')}
           </p>
-          <p className="text-gray-700">
-            Beyond coding, I use content creation and storytelling to inspire Sudanese youth to explore technology, freelancing, and digital opportunities.
+          <p className="text-foreground">
+            {t('about.terminal.line5')}
           </p>
           
           {/* Interactive terminal with user input */}

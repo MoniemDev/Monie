@@ -111,27 +111,27 @@ export function SocialDock() {
     >
       <Dock 
         direction="middle" 
-        className="h-12 px-4 py-1.5 bg-white backdrop-blur-sm border border-gray-100 shadow-md rounded-xl mx-auto w-full"
+        className="h-12 px-4 py-1.5 bg-card backdrop-blur-sm border border-border shadow-md rounded-xl mx-auto w-full"
       >
         <DockIcon>
           <Button
             onClick={() => setTheme("light")}
             variant="ghost"
             size="icon"
-            className="w-8 h-8 text-gray-700 flex items-center justify-center hover:bg-gray-100 transition-all"
+            className="w-8 h-8 text-foreground flex items-center justify-center hover:bg-muted transition-all"
             aria-label="Light theme"
           >
             <Sun className="h-4 w-4" />
           </Button>
         </DockIcon>
 
-        <Separator orientation="vertical" className="h-6 bg-gray-200 mx-1" />
+        <Separator orientation="vertical" className="h-6 bg-border mx-1" />
 
         <DockIcon>
           <Button
             variant="ghost"
             size="icon"
-            className="w-8 h-8 text-gray-700 flex items-center justify-center hover:bg-gray-100 transition-all"
+            className="w-8 h-8 text-foreground flex items-center justify-center hover:bg-muted transition-all"
             asChild
           >
             <a href="https://github.com/Anuragspace" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -144,7 +144,7 @@ export function SocialDock() {
           <Button
             variant="ghost"
             size="icon"
-            className="w-8 h-8 text-gray-700 flex items-center justify-center hover:bg-gray-100 transition-all"
+            className="w-8 h-8 text-foreground flex items-center justify-center hover:bg-muted transition-all"
             asChild
           >
             <a href="https://www.linkedin.com/in/adarshanurag/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
@@ -157,7 +157,7 @@ export function SocialDock() {
           <Button
             variant="ghost"
             size="icon"
-            className="w-8 h-8 text-gray-700 flex items-center justify-center hover:bg-gray-100 transition-all"
+            className="w-8 h-8 text-foreground flex items-center justify-center hover:bg-muted transition-all"
             asChild
           >
             <a href="https://www.instagram.com/anurag__adarsh/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -170,7 +170,7 @@ export function SocialDock() {
           <Button
             variant="ghost"
             size="icon"
-            className="w-8 h-8 text-gray-700 flex items-center justify-center hover:bg-gray-100 transition-all"
+            className="w-8 h-8 text-foreground flex items-center justify-center hover:bg-muted transition-all"
             asChild
           >
             <a href="https://www.behance.net/anuragadarsh1" target="_blank" rel="noopener noreferrer" aria-label="Behance">
@@ -179,13 +179,13 @@ export function SocialDock() {
           </Button>
         </DockIcon>
 
-        <Separator orientation="vertical" className="h-6 bg-gray-200 mx-1" />
+        <Separator orientation="vertical" className="h-6 bg-border mx-1" />
 
         <DockIcon>
           <Button
             variant="ghost"
             size="icon"
-            className="w-8 h-8 text-gray-700 flex items-center justify-center hover:bg-gray-100 transition-all"
+            className="w-8 h-8 text-foreground flex items-center justify-center hover:bg-muted transition-all"
             asChild
           >
             <a href="#about" aria-label="Scroll down">

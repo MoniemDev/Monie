@@ -4,6 +4,7 @@ import { AnimatedGridPattern } from "@/components/AnimatedGridPattern";
 import { motion, LazyMotion, domAnimation, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import { OptimizedImage } from "./OptimizedImage";
+import { useTranslation } from "react-i18next";
 
 interface Project {
   id: string;
@@ -16,6 +17,7 @@ interface Project {
 }
 
 const ProjectCard = memo(({ project, index }: { project: Project; index: number }) => {
+  const { t } = useTranslation();
   const ref = React.useRef(null);
   const inView = useInView(ref, {
     once: true,
@@ -32,7 +34,7 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
       className="w-full"
     >
       <motion.div 
-        className="group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-3 md:p-5 bg-white relative"
+        className="group overflow-hidden rounded-xl shadow-lg hover:shadow-xl dark:shadow-accent/10 transition-all duration-300 p-3 md:p-5 bg-card relative border border-border"
         whileHover={{ 
           scale: 1.01,
           transition: { duration: 0.2 }
@@ -42,15 +44,15 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
           <div 
             className={`relative w-full md:w-[40%] p-4 md:p-6 flex flex-col justify-between rounded-xl overflow-hidden ${
               index % 2 === 0 
-                ? 'bg-[#fafafa] text-gray-800' 
-                : 'bg-[#3E40EF] text-white'
+                ? 'bg-muted text-foreground' 
+                : 'bg-accent text-accent-foreground'
             }`}
           >
             <div>
               <div className="mb-3">
                 <span 
                   className={`block text-sm mb-1 font-medium ${
-                    index % 2 === 0 ? 'text-[#3E40EF]' : 'text-blue-100'
+                    index % 2 === 0 ? 'text-accent' : 'text-accent-foreground/80'
                   }`}
                 >
                   {project.year}
@@ -58,7 +60,7 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
                 <h3 className="text-xl font-bold md:text-2xl">{project.title}</h3>
               </div>
               
-              <p className={`mb-4 ${index % 2 === 0 ? 'text-gray-600' : 'text-blue-100'} text-sm md:text-base`}>
+              <p className={`mb-4 ${index % 2 === 0 ? 'text-muted-foreground' : 'text-accent-foreground/80'} text-sm md:text-base`}>
                 {project.description}
               </p>
               
@@ -68,8 +70,8 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
                     key={i} 
                     className={`rounded-full px-2 py-1 text-xs font-medium ${
                       index % 2 === 0 
-                        ? 'bg-gray-100 text-gray-700' 
-                        : 'bg-blue-100/20 text-white'
+                        ? 'bg-background text-foreground' 
+                        : 'bg-accent-foreground/20 text-accent-foreground'
                     }`}
                   >
                     {tag}
@@ -82,7 +84,7 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
               <div className="relative w-fit">
                 <RainbowButton className="mt-5 scale-90 origin-left">
                   <Link to={`/projects/${project.id}`} className="flex items-center justify-center text-sm w-32">
-                    View Project
+                    {t('projects.viewProject')}
                   </Link>
                 </RainbowButton>
               </div>
@@ -90,7 +92,7 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
               <div className="relative w-fit">
                 <WhiteRainbowButton className="mt-5 scale-90 origin-left">
                   <Link to={`/projects/${project.id}`} className="flex items-center justify-center text-sm w-32">
-                    View Project
+                    {t('projects.viewProject')}
                   </Link>
                 </WhiteRainbowButton>
               </div>
@@ -98,7 +100,7 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
             
             <div 
               className={`absolute -bottom-16 -right-16 w-32 h-32 rounded-full opacity-0 group-hover:opacity-10 transition-all duration-500 transform scale-0 group-hover:scale-100 ${
-                index % 2 === 0 ? 'bg-[#3E40EF]' : 'bg-white'
+                index % 2 === 0 ? 'bg-accent' : 'bg-accent-foreground'
               }`}
             />
 
@@ -128,70 +130,72 @@ const ProjectCard = memo(({ project, index }: { project: Project; index: number 
 ProjectCard.displayName = "ProjectCard";
 
 const Projects = () => {
+  const { t } = useTranslation();
+  
   const projects: Project[] = [
     {
       id: "trustbuild",
-      title: "TrustBuild",
-      year: "2024",
-      description: "A platform connecting customers with contractors for construction and renovation projects with subscriptions, reviews, and online payments.",
+      title: t('projects.trustbuild.title'),
+      year: t('projects.trustbuild.year'),
+      description: t('projects.trustbuild.description'),
       image: "/images/csedm.webp",
-      tags: ["Product Design", "Front-End", "Startup System", "UI/UX"],
+      tags: t('projects.trustbuild.tags', { returnObjects: true }) as string[],
       link: "#",
     },
     {
       id: "aqmahost",
-      title: "عقمة هوست",
-      year: "2024",
-      description: "A digital platform for managing tourist properties, bookings, owners, smart locks, and payment systems.",
+      title: t('projects.aqmahost.title'),
+      year: t('projects.aqmahost.year'),
+      description: t('projects.aqmahost.description'),
       image: "/images/campusm.webp",
-      tags: ["SaaS", "Dashboard Design", "Booking System", "UI Design"],
+      tags: t('projects.aqmahost.tags', { returnObjects: true }) as string[],
       link: "#",
     },
     {
       id: "wasel",
-      title: "واصل التجارية",
-      year: "2024",
-      description: "Commercial platform concept focused on improving digital accessibility and business operations.",
+      title: t('projects.wasel.title'),
+      year: t('projects.wasel.year'),
+      description: t('projects.wasel.description'),
       image: "/images/cabm.webp",
-      tags: ["Business Platform", "UI Design", "Digital Commerce"],
+      tags: t('projects.wasel.tags', { returnObjects: true }) as string[],
       link: "#",
     },
     {
       id: "portfolio",
-      title: "Personal Portfolio",
-      year: "2024",
-      description: "Your digital identity and storytelling platform combining development, branding, and personal narrative.",
+      title: t('projects.portfolio.title'),
+      year: t('projects.portfolio.year'),
+      description: t('projects.portfolio.description'),
       image: "/images/imagim.webp",
-      tags: ["Portfolio", "Branding", "Storytelling", "Web Development"],
+      tags: t('projects.portfolio.tags', { returnObjects: true }) as string[],
       link: "#",
     },
   ];
 
   return (
     <LazyMotion features={domAnimation}>
-      <section id="projects" className="section-padding py-14 md:py-16 bg-gray-50 relative overflow-hidden">
+      <section id="projects" className="section-padding py-14 md:py-16 bg-muted/30 relative overflow-hidden">
         <AnimatedGridPattern
           numSquares={24}
           maxOpacity={0.08}
           duration={4}
           repeatDelay={2}
-          className="absolute inset-x-[-20%] inset-y-[0%] w-[60%] h-[60%] skew-y-12 text-[#3E40EF]/80 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
+          className="absolute inset-x-[-20%] inset-y-[0%] w-[60%] h-[60%] skew-y-12 text-accent/80 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
         />
         <AnimatedGridPattern
           numSquares={24}
           maxOpacity={0.08}
           duration={4}
           repeatDelay={2}
-          className="absolute inset-x-[60%] inset-y-[40%] w-[60%] h-[60%] -skew-y-12 text-[#3E40EF]/80 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
+          className="absolute inset-x-[60%] inset-y-[40%] w-[60%] h-[60%] -skew-y-12 text-accent/80 [mask-image:radial-gradient(600px_circle_at_center,white,transparent)]"
         />
 
         <div className="container-custom">
           <div className="mb-8 md:mb-12 text-center">
-            <h2 className="mb-4">Real Projects, Real Impact</h2>
-            <p className="mx-auto max-w-2xl text-gray-600">
-              From nonprofit platforms to business websites and startup systems, building products that are visually clean, technically solid, and genuinely useful.
+            <h2 className="mb-4">{t('projects.title')}</h2>
+            <p className="mx-auto max-w-2xl text-muted-foreground">
+              {t('projects.subtitle')}
             </p>
-            <div className="mx-auto mt-4 h-1 w-24 bg-[#3E40EF]"></div>
+            <div className="mx-auto mt-4 h-1 w-24 bg-accent"></div>
           </div>
           
           <div className="grid grid-cols-1 gap-6 md:gap-10">

@@ -195,7 +195,7 @@ const ProjectDetail = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 font-manrope">Project Overview</h2>
-            <div className="text-lg md:text-4xl font-medium leading-relaxed text-gray-700">
+            <div className="text-lg md:text-4xl font-medium leading-relaxed text-foreground">
               <DesktopTextReveal className="hidden md:block" lineIndex={0} totalLines={1}>
               {project.description}              
               </DesktopTextReveal>

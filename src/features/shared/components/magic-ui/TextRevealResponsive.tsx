@@ -1,9 +1,9 @@
 "use client";
 
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
-import { ComponentPropsWithoutRef, FC, ReactNode, useRef, memo, useState, useEffect } from "react";
+import { ComponentPropsWithoutRef, FC, ReactNode, useRef, memo } from "react";
 import { cn } from "@/lib/utils";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useTheme } from "next-themes";
 
 export interface TextRevealResponsiveProps extends ComponentPropsWithoutRef<"div"> {
   children: string;
@@ -104,9 +104,15 @@ interface WordProps {
 }
 
 const Word: FC<WordProps> = memo(({ children, progress, range }) => {
-  // Smoother transitions with better contrast
+  const { resolvedTheme } = useTheme();
+  
+  // Theme-aware colors for scroll reveal
+  const startColor = resolvedTheme === 'dark' ? '#71717a' : '#9ca3af'; // muted-foreground
+  const endColor = resolvedTheme === 'dark' ? '#fafafa' : '#0a0a0f';   // foreground
+  
+  // Smoother transitions with better contrast - theme-aware colors
   const opacity = useTransform(progress, range, [0.2, 1]);
-  const color = useTransform(progress, range, ["#9ca3af", "#000000"]);
+  const color = useTransform(progress, range, [startColor, endColor]);
   const y = useTransform(progress, range, [4, 0]); // Subtle upward movement
 
   return (

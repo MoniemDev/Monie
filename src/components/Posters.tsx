@@ -4,6 +4,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
 import { OptimizedImage } from "./OptimizedImage";
 import useIntersectionObserver from "@/hooks/use-intersection-observer";
+import { useTranslation } from "react-i18next";
 
 interface Poster {
   id: number;
@@ -13,6 +14,8 @@ interface Poster {
 }
 
 const Posters = () => {
+  const { t } = useTranslation();
+  
   // Optimized carousel settings for better performance
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -50,38 +53,38 @@ const Posters = () => {
   const posters: Poster[] = [
     {
       id: 1,
-      title: "CSED Website Launch",
-      description: "Design and innovation come together in this launch poster.",
+      title: t('posters.items.csed.title'),
+      description: t('posters.items.csed.description'),
       image: "/images/1.webp",
     },
     {
       id: 2,
-      title: "Portfolio Launch Poster",
-      description: "A clean and catchy design for portfolio launch poster",
+      title: t('posters.items.portfolio.title'),
+      description: t('posters.items.portfolio.description'),
       image: "/images/poster1.webp",
     },
     {
       id: 3,
-      title: "Sustainalbe Evet Poster",
-      description: "Approaching problems with fun and creativity leads to unique and enjoyable solutions.",
+      title: t('posters.items.sustainable.title'),
+      description: t('posters.items.sustainable.description'),
       image: "/images/poster4.webp",
     },
     {
       id: 4,
-      title: "EVENT FLYERS",
-      description: "Code4Chnage Event poster for marketing.",
+      title: t('posters.items.eventFlyers.title'),
+      description: t('posters.items.eventFlyers.description'),
       image: "/images/poster2.webp",
     },
     {
       id: 5,
-      title: "Imaginum Flyers",
-      description: "Showcasing creativity, design, and innovative solutions.",
+      title: t('posters.items.imaginum.title'),
+      description: t('posters.items.imaginum.description'),
       image: "/images/IMG2.webp",
     },
     {
       id: 6,
-      title: "Event Announcement Poster",
-      description: "Campaign promoting environmental awareness",
+      title: t('posters.items.announcement.title'),
+      description: t('posters.items.announcement.description'),
       image: "/images/poster3.webp",
     },
   ];
@@ -105,18 +108,17 @@ const Posters = () => {
   }, [emblaApi, isVisible]);
   
   return (
-    <section ref={postersRef} className="relative bg-gradient-to-b from-white to-gray-50/50 py-8 md:py-16 overflow-hidden">
+    <section ref={postersRef} className="relative bg-gradient-to-b from-background to-muted/30 py-8 md:py-16 overflow-hidden">
       {/* Blur effects - extended to cover poster area fully */}
-      <div className="absolute left-0 top-1/4 bottom-0 w-[50px] md:w-[80px] bg-gradient-to-r from-white via-white/90 to-transparent z-10" />
-      <div className="absolute right-0 top-1/4 bottom-0 w-[50px] md:w-[80px] bg-gradient-to-l from-white via-white/90 to-transparent z-10" />
+      <div className="absolute left-0 top-1/4 bottom-0 w-[50px] md:w-[80px] bg-gradient-to-r from-background via-background/90 to-transparent z-10" />
+      <div className="absolute right-0 top-1/4 bottom-0 w-[50px] md:w-[80px] bg-gradient-to-l from-background via-background/90 to-transparent z-10" />
 
       <div className="container mx-auto px-3 md:px-4 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">Graphic Design Skills</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">{t('posters.title')}</h2>
           <div className="w-16 md:w-20 h-1 bg-accent mx-auto mb-4 md:mb-6"></div>
-          <p className="text-sm md:text-base text-gray-600">
-            Showcasing visual storytelling through diverse design projects that
-            combine aesthetics with strategic communication.
+          <p className="text-sm md:text-base text-muted-foreground">
+            {t('posters.subtitle')}
           </p>
         </div>
 
@@ -134,7 +136,7 @@ const Posters = () => {
                   }}
                   transition={{ duration: 0.4 }}
                 >
-                  <div className="group relative aspect-[3/4] rounded-lg md:rounded-xl overflow-hidden bg-white shadow-md hover:shadow-lg transition-all duration-500 mx-0.5 md:mx-1">
+                  <div className="group relative aspect-[3/4] rounded-lg md:rounded-xl overflow-hidden bg-card shadow-md hover:shadow-lg dark:shadow-accent/5 transition-all duration-500 mx-0.5 md:mx-1">
                     <OptimizedImage
                       src={poster.image}
                       alt={poster.title}
